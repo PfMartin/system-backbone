@@ -1,0 +1,14 @@
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2
+    container_name: system-backbone-broker
+    env_file:
+      - .env
+    volumes:
+      - ./config:/mosquitto/config
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+    tty: true
