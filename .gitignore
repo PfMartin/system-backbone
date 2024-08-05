@@ -1,3 +1,8 @@
+# Message broker
+message_broker/config/mosquitto.conf
+message_broker/data/
+message_broker/log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
