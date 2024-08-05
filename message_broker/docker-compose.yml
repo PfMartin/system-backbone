@@ -2,8 +2,6 @@ services:
   mqtt-broker:
     image: eclipse-mosquitto:2
     container_name: system-backbone-broker
-    env_file:
-      - .env
     volumes:
       - ./config:/mosquitto/config
       - ./data:/mosquitto/data
