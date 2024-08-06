@@ -1,12 +1,9 @@
-import time
-import random
 import signal
 from mqtt_client import MqttClient
 
 mqtt_config = {
     "host": "localhost",
     "port": 1883,
-    "topic": "sensor/status",
     "client_id": "server",
 }
 

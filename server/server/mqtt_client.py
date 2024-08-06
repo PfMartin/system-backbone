@@ -8,7 +8,7 @@ class MqttClient:
             "port": broker_port,
         }
         self.client_id = client_id
-        self.broker_info = f"MQTT Broker ({broker_address}:{broker_port})"
+        self.broker_info = f"MQTT Broker at {broker_address}:{broker_port}"
 
     def connect(self) -> None:
         def on_connect(client, userdata, flags, reason_code, properties) -> None:
@@ -34,6 +34,15 @@ class MqttClient:
         print(f"Listening for messages on topic '{topic}'")
         self.client.subscribe(topic)
         self.client.loop_forever()
+
+    def start_publishing(self) -> None:
+        self.client.loop_start()
+
+    def publish_message(
+        self, topic: str, payload: mqtt_client.PayloadType, qos: int = 0
+    ) -> None:
+        print(f"Publishing message '{payload}' with topic '{topic}'")
+        self.client.publish(topic, payload, qos)
 
     def disconnect(self) -> None:
         print(f"Closing connection to {self.broker_info} ...")
