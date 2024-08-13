@@ -2,7 +2,7 @@ import signal
 from mqtt_client import MqttClient
 
 mqtt_config = {
-    "host": "localhost",
+    "host": "192.168.178.20",
     "port": 1883,
     "client_id": "server",
 }
@@ -17,7 +17,7 @@ def main() -> None:
     signal.signal(signal.SIGINT, interrupt_handler)
 
     client.connect()
-    client.start_listening("status/led")
+    client.start_listening("status/led-office")
 
 
 if __name__ == "__main__":

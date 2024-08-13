@@ -19,7 +19,7 @@ def main() -> None:
     client.start_publishing()
 
     while True:
-        client.publish_message("status/led", get_random_temperature())
+        client.publish_message("status/led-office", get_random_temperature())
         time.sleep(1)
 
 
